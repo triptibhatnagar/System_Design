@@ -9,7 +9,6 @@ class Passport {
 
 class Person {
     private String name;
-    // Person has Passport class within it but does not owns it
     private Passport passport;
     Person(String name, String passportNumber) {
         this.name = name;
