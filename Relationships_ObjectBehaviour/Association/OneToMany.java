@@ -3,10 +3,10 @@ package Relationships_ObjectBehaviour.Association;
 import java.util.ArrayList;
 import java.util.List;
 
-class Student {
+class Member {
     private String name;
     private String id;
-    Student(String name, String id) {
+    Member(String name, String id) {
         this.name = name;
         this.id = id;
     }
@@ -20,16 +20,17 @@ class Student {
 
 class College {
     private String name;
-    private List<Student> students;
+    // a college consists of multiple students 
+    private List<Member> members;
     College(String name) {
         this.name = name;
-        students = new ArrayList<>();
+        members = new ArrayList<>();
     }
-    public void addStudent(Student student) {
-        students.add(student);
+    public void addMember(Member member) {
+        members.add(member);
     }
-    public void displayAllStudents() {
-        for(Student x: students) {
+    public void displayAllMembers() {
+        for(Member x: members) {
             System.out.println("Name: "+x.getName()+", ID: "+x.getId());
         }
     }
@@ -37,11 +38,11 @@ class College {
 
 public class OneToMany {
     public static void main(String[] args) {
-        Student s1 = new Student("Tripti", "2747");
-        Student s2 = new Student("Selena", "8326");
+        Member s1 = new Member("Tripti", "2747");
+        Member s2 = new Member("Selena", "8326");
         College clg = new College("MMDU");
-        clg.addStudent(s1);
-        clg.addStudent(s2);
-        clg.displayAllStudents();
+        clg.addMember(s1);
+        clg.addMember(s2);
+        clg.displayAllMembers();
     }
 }
